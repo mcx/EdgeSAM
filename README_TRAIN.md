@@ -47,6 +47,15 @@ Note: adjust the number of GPUs and the batch size to fit your experiment enviro
 
 Run the following commands to start encoder-only KD:
 
+Download [rep_vit weight](https://github.com/THU-MIG/RepViT/releases).
+
+```
+wget https://github.com/THU-MIG/RepViT/releases/download/v1.0/repvit_m0_9_distill_300e.pth
+
+mv repvit_m0_9_distill_300e.pth weights/repvit_m1_distill_300.pth
+```
+
+
 ```
 CUDA_VISIBLE_DEVICES=0,1,2,3,4,5,6,7 python -m torch.distributed.launch --master_port 29501 --nproc_per_node 8 \
     training/train.py --cfg training/configs/rep_vit_m1_fuse_sa_distill.yaml \
