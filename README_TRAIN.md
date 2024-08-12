@@ -71,6 +71,7 @@ python scripts/convert_weights.py output/rep_vit_m1_fuse_sa_distill/default/ckpt
 ```
 
 ## (Phase 2) Prompt-in-the-Loop Knowledge Distillation <a name="prompt"></a>
+Use script/extract_weights.py to extract prompt encoder and decoder weights from sam_vit_h_4b8939.pth.
 
 Run the following commands to start prompt-in-the-loop KD:
 
